@@ -1,6 +1,6 @@
 # terraform-gcp-cloud-storage
 
-This Terraform project provisions a Google Cloud Storage (GCS) bucket. It focuses strictly on infrastructure provisioning and does not manage bucket content.
+This Terraform project provisions a Google Cloud Storage (GCS) bucket. 
 
 ## Architecture
 
