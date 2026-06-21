@@ -77,3 +77,38 @@ To stay within the free tier, ensure your usage does not exceed:
 
 4.  **Outputs**:
     After a successful deployment, Terraform will output the bucket name and URL.
+
+---
+
+## Usage as a Module
+
+Reference this repository as a Terraform module in your own configurations:
+
+```hcl
+module "gcs_bucket" {
+  source = "github.com/marcuwynu23/terraform-gcp-cloud-storage?ref=main"
+
+  project_id  = var.project_id
+  region      = "us-central1"
+  bucket_name = "my-app-assets"
+}
+```
+
+Then use the outputs in your configuration:
+
+```hcl
+# Example: pass the bucket URL to a Cloud Run service
+resource "google_cloud_run_v2_service" "app" {
+  # ...
+  template {
+    containers {
+      env {
+        name  = "BUCKET_URL"
+        value = module.gcs_bucket.bucket_url
+      }
+    }
+  }
+}
+```
+
+All [variables](#variables) and [outputs](#outputs) documented below are available when using this as a module.
