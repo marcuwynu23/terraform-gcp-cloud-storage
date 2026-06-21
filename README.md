@@ -111,4 +111,20 @@ resource "google_cloud_run_v2_service" "app" {
 }
 ```
 
-All [variables](#variables) and [outputs](#outputs) documented below are available when using this as a module.
+---
+
+## Variables
+
+| Variable | Description | Type | Default |
+|----------|-------------|------|---------|
+| `project_id` | GCP project ID | `string` | (required) |
+| `region` | GCP region (free tier: us-west1, us-central1, us-east1) | `string` | `"us-central1"` |
+| `bucket_name` | Base bucket name (random suffix appended) | `string` | (required) |
+
+## Outputs
+
+| Output | Description |
+|--------|-------------|
+| `bucket_name` | Name of the created bucket |
+| `bucket_url` | Base URL of the bucket |
+| `bucket_self_link` | URI of the created resource |
