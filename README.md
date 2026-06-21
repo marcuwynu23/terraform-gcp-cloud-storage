@@ -78,8 +78,6 @@ To stay within the free tier, ensure your usage does not exceed:
 4.  **Outputs**:
     After a successful deployment, Terraform will output the bucket name and URL.
 
----
-
 ## Usage as a Module
 
 Reference this repository as a Terraform module in your own configurations:
@@ -110,8 +108,6 @@ resource "google_cloud_run_v2_service" "app" {
   }
 }
 ```
-
----
 
 ## Variables
 
