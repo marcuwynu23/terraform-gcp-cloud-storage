@@ -82,15 +82,28 @@ To stay within the free tier, ensure your usage does not exceed:
 
 Reference this repository as a Terraform module in your own configurations:
 
-```hcl
-module "gcs_bucket" {
-  source = "github.com/marcuwynu23/terraform-gcp-cloud-storage?ref=main"
-
-  project_id  = var.project_id
-  region      = "us-central1"
-  bucket_name = "my-app-assets"
-}
-```
+> **Option 1**: Terraform Registry (recommended)
+> ```hcl
+> module "cloud-storage" {
+>   source  = "marcuwynu23/cloud-storage/gcp"
+>   version = "1.0.0"
+>
+>   project_id  = var.project_id
+>   region      = "us-central1"
+>   bucket_name = "my-app-assets"
+> }
+> ```
+>
+> **Option 2**: GitHub source
+> ```hcl
+> module "cloud-storage" {
+>   source = "github.com/marcuwynu23/terraform-gcp-cloud-storage?ref=main"
+>
+>   project_id  = var.project_id
+>   region      = "us-central1"
+>   bucket_name = "my-app-assets"
+> }
+> ```
 
 Then use the outputs in your configuration:
 
